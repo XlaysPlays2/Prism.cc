@@ -1,4 +1,4 @@
--- [[ Prism.cc | Created by xlaysplays ]]
+-- [[ Prism.cc | Created by XlaysPlays2 ]]
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 local Window = OrionLib:MakeWindow({
@@ -17,26 +17,26 @@ local MainTab = Window:MakeTab({
 
 -- Credits Section
 MainTab:AddLabel("Status: Active")
-MainTab:AddLabel("Created by: xlaysplays")
+MainTab:AddLabel("Repository: XlaysPlays2/Prism.cc")
 
 -- The Loader Button
 MainTab:AddButton({
     Name = "Execute All Modules (G, H, C)",
     Callback = function()
-        -- Replace these with your actual Raw GitHub links for each file
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/Fly.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/SpiritBomb.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/Kamehameha.lua"))()
+        -- Pulling files from the /scripts/ folder
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/fly.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/sbomb.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/kame.lua"))()
         
         OrionLib:MakeNotification({
             Name = "Prism.cc",
-            Content = "Modules Loaded Successfully.",
+            Content = "Fly, S-Bomb, and Kame loaded.",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
     end    
 })
 
-MainTab:AddLabel("Binds: G (Fly) | H (Bomb) | C (Beam)")
+MainTab:AddLabel("Binds: G (Fly) | H (S-Bomb) | C (Kame)")
 
 OrionLib:Init()
