@@ -24,9 +24,9 @@ MainTab:AddButton({
     Name = "Execute All Modules (G, H, C)",
     Callback = function()
         -- Pulling files from the /scripts/ folder
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/fly.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/sbomb.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/main/scripts/kame.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/fly.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/sbomb.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/kame.lua"))()
         
         OrionLib:MakeNotification({
             Name = "Prism.cc",
