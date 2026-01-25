@@ -23,14 +23,24 @@ MainTab:AddLabel("Repository: XlaysPlays2/Prism.cc")
 MainTab:AddButton({
     Name = "Execute All Modules (G, H, C)",
     Callback = function()
+        -- Using pcall (protected call) to prevent the hub from crashing if a link is dead
+        local function SafeLoad(url)
+            local success, err = pcall(function()
+                loadstring(game:HttpGet(url))()
+            end)
+            if not success then
+                warn("Prism.cc Error loading script: " .. tostring(err))
+            end
+        end
+
         -- Pulling files from the /scripts/ folder
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/fly.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/sbomb.lua"))()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/kame.lua"))()
+        SafeLoad("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/fly.lua")
+        SafeLoad("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/sbomb.lua")
+        SafeLoad("https://raw.githubusercontent.com/XlaysPlays2/Prism.cc/refs/heads/main/scripts/kame.lua")
         
         OrionLib:MakeNotification({
             Name = "Prism.cc",
-            Content = "Fly, S-Bomb, and Kame loaded.",
+            Content = "Fly, S-Bomb, and Kame modules executed!",
             Image = "rbxassetid://4483345998",
             Time = 5
         })
@@ -39,4 +49,5 @@ MainTab:AddButton({
 
 MainTab:AddLabel("Binds: G (Fly) | H (S-Bomb) | C (Kame)")
 
+-- Required to actually render the GUI
 OrionLib:Init()
